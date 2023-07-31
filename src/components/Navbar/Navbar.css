@@ -1,0 +1,14 @@
+#navbar-container {
+    display: flex;
+    padding: 1em;
+    align-items: center;
+}
+
+h2 {
+    flex-basis: 80%;
+}
+
+button {
+    flex-grow: 1;
+    height: 4em;
+}
