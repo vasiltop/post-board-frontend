@@ -1,5 +1,7 @@
 :root {
-    --border-color: #433E3F;
+    --border-color: rgb(199, 211, 235, 0.2);
+    --primary-color: #141d26;
+    --secondary-color: #141d26;
 }
 
 #centered-content {
@@ -14,12 +16,12 @@
 }
 
 #post-content-header {
-    background-color: #8E6E53;
+    background-color: var(--primary-color);
     flex-basis: 10%;
     border-bottom: 1px solid var(--border-color);
 }
 
 #post-content {
-    background-color: #7A7265;
+    background-color: var(--secondary-color);
     flex-grow: 1;
 }
