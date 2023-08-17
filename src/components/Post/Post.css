@@ -1,0 +1,36 @@
+p {
+    color: white;
+    font-family: "Arial", sans-serif;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+#post-container {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5em;
+}
+
+#post-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1em;
+    flex-wrap: wrap;
+    
+}
+
+#post-header > h2 {
+    color: white;
+    font-family: "Arial", sans-serif;
+    font-weight: 400;
+}
+
+#post-header > a , #post-header > p{
+    color: grey;
+    text-decoration: none;
+}
+
+
+
+#post-header > a:hover {
+    text-decoration: underline;
+}

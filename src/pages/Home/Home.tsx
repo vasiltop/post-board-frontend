@@ -1,5 +1,6 @@
 import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
+import Post from '../../components/Post/Post';
 
 export default function Home() {
     return(
@@ -11,6 +12,15 @@ export default function Home() {
 
             <div id="post-content">
             
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+
             </div>
         </div>
     )

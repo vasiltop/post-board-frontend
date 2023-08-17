@@ -2,9 +2,11 @@
     display: flex;
     padding: 1em;
     align-items: center;
+    flex-wrap: wrap;
+    
 }
 
-h2 {
+#title {
     flex-basis: 80%;
     color: white;
     font-family: "Verdana", sans-serif;
@@ -15,8 +17,9 @@ h2 {
     flex-grow: 1;
     display: flex;
     justify-content: center;
+    gap: 7px;
 }
 
-svg {
-
+links-section > button {
+    background: transparent;
 }
