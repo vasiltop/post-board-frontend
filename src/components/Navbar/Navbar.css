@@ -20,6 +20,9 @@
     gap: 7px;
 }
 
-links-section > button {
-    background: transparent;
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
+

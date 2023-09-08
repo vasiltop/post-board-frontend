@@ -9,6 +9,7 @@ export default function Post() {
                 <h2> Title </h2>
                 <a href="#"> Username </a>
                 <p> 10/12/06 </p>
+
             </div>
 
             <p>
