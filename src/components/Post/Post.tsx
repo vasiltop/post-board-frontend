@@ -1,23 +1,16 @@
-import './Post.css';
+import "./Post.css";
+import { type PostData } from "../../utils/types";
 
-export default function Post() {
+export default function Post(postInfo: PostData) {
+  return (
+    <div id="post-container">
+      <div id="post-header">
+        <h2> {postInfo.title} </h2>
+        <a href={"/profile/" + postInfo.userId}> {postInfo.userName} </a>
+        <p> {postInfo.date} </p>
+      </div>
 
-    return(
-        <div id="post-container">
-            <div id="post-header">
-
-                <h2> Title </h2>
-                <a href="#"> Username </a>
-                <p> 10/12/06 </p>
-
-            </div>
-
-            <p>
-                Actual post text this is an example test test test test sup hi test
-            </p>
-
-            
-
-        </div>
-    )
+      <p> {postInfo.content} </p>
+    </div>
+  );
 }
