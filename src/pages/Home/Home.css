@@ -1,27 +1,30 @@
 :root {
-    --border-color: rgb(199, 211, 235, 0.2);
-    --primary-color: #141d26;
-    --secondary-color: #141d26;
+  --border-color: rgb(199, 211, 235, 0.2);
+  --primary-color: #141d26;
+  --secondary-color: #141d26;
 }
 
 #centered-content {
-    
-    width: 40vw;
-    min-width: 350px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
+  width: 40vw;
+  min-width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
 }
 
 #post-content-header {
-    background-color: var(--primary-color);
-    flex-basis: 10%;
-    border-bottom: 1px solid var(--border-color);
+  background-color: var(--primary-color);
+  flex-basis: 10%;
+  border-bottom: 1px solid var(--border-color);
 }
 
 #post-content {
-    background-color: var(--secondary-color);
-    flex-grow: 1;
+  background-color: var(--secondary-color);
+  flex-grow: 1;
+}
+
+ul {
+  padding-left: 0px;
 }
