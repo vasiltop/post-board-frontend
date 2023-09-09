@@ -1,20 +1,20 @@
-import "./Home.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Post from "../../components/Post/Post";
-import { useEffect, useState } from "react";
-import { type JsonData, type PostData } from "../../utils/types";
+import './Home.css';
+import Navbar from '../../components/Navbar/Navbar';
+import Post from '../../components/Post/Post';
+import { useEffect, useState } from 'react';
+import { type JsonData, type PostData } from '../../utils/types';
 
 export default function Home() {
   const [posts, setPosts] = useState<PostData[]>([]);
 
   useEffect(() => {
     async function getPosts() {
-      const jwt = localStorage.getItem("jwt")!;
+      const jwt = localStorage.getItem('jwt')!;
 
-      const res = await fetch("http://localhost:8000/api/posts", {
-        method: "GET",
+      const res = await fetch('http://localhost:8000/api/posts', {
+        method: 'GET',
         headers: {
-          "auth-token": jwt,
+          'auth-token': jwt,
         },
       });
 
