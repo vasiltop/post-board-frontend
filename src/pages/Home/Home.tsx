@@ -20,7 +20,7 @@ export default function Home() {
 
       const responseJSON: JsonData = await res.json();
 
-      setPosts(responseJSON.data.postList);
+      setPosts(responseJSON.data.postList.reverse());
     }
 
     getPosts();
