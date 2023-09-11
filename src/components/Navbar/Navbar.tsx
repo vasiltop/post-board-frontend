@@ -1,21 +1,54 @@
 import './Navbar.css';
 
-import { navbarInfo } from '../../utils/types';
+import { JsonData, User } from '../../utils/types';
 import { useNavigate } from 'react-router';
+import { useEffect, useState } from 'react';
 
-export default function Navbar(navbarInfo: navbarInfo) {
+export default function Navbar() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState<User>({
+    name: '',
+    email: '',
+    password: '',
+    date: '',
+    _id: '',
+  });
+
   const navigate = useNavigate();
   function logOut() {
     localStorage.setItem('jwt', '');
     navigate(0);
   }
 
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt')!;
+
+    async function getUserData() {
+      const res = await fetch('http://localhost:8000/api/user/me', {
+        method: 'GET',
+        headers: {
+          'auth-token': jwt,
+        },
+      });
+
+      const responseJSON: JsonData = await res.json();
+
+      setLoggedIn(responseJSON.success);
+
+      if (responseJSON.success) {
+        setUser(responseJSON.data.user);
+      }
+    }
+
+    getUserData();
+  }, []);
+
   return (
     <div id="navbar-container">
       <a id="title" href="/">
         <h2> PostBoard</h2>
       </a>
-      {navbarInfo.loggedIn ? (
+      {loggedIn ? (
         <div id="links-section">
           <a href="/create">
             <svg
@@ -29,7 +62,7 @@ export default function Navbar(navbarInfo: navbarInfo) {
             </svg>
           </a>
 
-          <a href={'/profile/' + navbarInfo.user._id}>
+          <a href={'/profile/' + user._id}>
             {' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"

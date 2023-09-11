@@ -66,7 +66,7 @@ export default function Home() {
   }
   return (
     <>
-      <Navbar loggedIn={loggedIn} user={user} />
+      <Navbar />
       <div id="post-content">
         <ul>
           {posts.map((post) => (

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { onChange } from '../../utils/event';
 import { type JsonData } from '../../utils/types';
 import { Navigate } from 'react-router-dom';
+import Navbar from '../../components/Navbar/Navbar';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -36,6 +37,7 @@ export default function Login() {
 
   return (
     <>
+      <Navbar />
       <form onSubmit={handleLogin}>
         <input
           type="text"
