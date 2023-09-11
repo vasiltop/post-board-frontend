@@ -1,11 +1,44 @@
 import './Home.css';
-import Navbar from '../../components/Navbar/Navbar';
 import Post from '../../components/Post/Post';
 import { useEffect, useState } from 'react';
-import { type JsonData, type PostData } from '../../utils/types';
+import { User, type JsonData, type PostData } from '../../utils/types';
+import { Navigate } from 'react-router';
+import Navbar from '../../components/Navbar/Navbar';
 
 export default function Home() {
   const [posts, setPosts] = useState<PostData[]>([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [verifiedToken, setVerifiedToken] = useState(false);
+  const [user, setUser] = useState<User>({
+    name: '',
+    email: '',
+    password: '',
+    date: '',
+    _id: '',
+  });
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt')!;
+
+    async function getUserData() {
+      const res = await fetch('http://localhost:8000/api/user/me', {
+        method: 'GET',
+        headers: {
+          'auth-token': jwt,
+        },
+      });
+
+      const responseJSON: JsonData = await res.json();
+
+      setLoggedIn(responseJSON.success);
+      setVerifiedToken(true);
+
+      if (responseJSON.success) {
+        setUser(responseJSON.data.user);
+      }
+    }
+
+    getUserData();
+  }, []);
 
   useEffect(() => {
     async function getPosts() {
@@ -26,12 +59,14 @@ export default function Home() {
     getPosts();
   }, []);
 
+  if (verifiedToken) {
+    if (!loggedIn) {
+      return <Navigate to="/login" />;
+    }
+  }
   return (
-    <div id="centered-content">
-      <div id="post-content-header">
-        <Navbar />
-      </div>
-
+    <>
+      <Navbar loggedIn={loggedIn} user={user} />
       <div id="post-content">
         <ul>
           {posts.map((post) => (
@@ -49,6 +84,6 @@ export default function Home() {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
 }

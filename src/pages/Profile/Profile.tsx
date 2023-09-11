@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { JsonData } from '../../utils/types';
+import Navbar from '../../components/Navbar/Navbar';
 
 export default function Profile() {
   const { id } = useParams();
@@ -23,8 +24,7 @@ export default function Profile() {
   }, []);
   return (
     <>
-      <h1> {name} </h1>
-      <h2> {dateCreated} </h2>
+      <Navbar />
     </>
   );
 }

@@ -40,7 +40,7 @@ export default function Post(post: PostData) {
     <div id="post-container">
       <div id="post-header">
         <h4> {post.title} </h4>
-        <a href={'/profile/' + post.userId}> @{post.userName} </a>
+        <p> @{post.userName} </p>
         <p> {date} </p>
       </div>
 
@@ -48,6 +48,7 @@ export default function Post(post: PostData) {
 
       <div id="like-information">
         <Like liked={liked} likes={likes} onClick={handleLike} />
+        <p> {likes} </p>
       </div>
     </div>
   );

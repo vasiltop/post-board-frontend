@@ -6,10 +6,6 @@ p {
   margin: 0px;
 }
 
-a {
-  font-family: 'Arial', sans-serif;
-  font-size: 0.9em;
-}
 #post-container {
   border-bottom: 1px solid var(--border-color);
   padding-left: 0.5em;

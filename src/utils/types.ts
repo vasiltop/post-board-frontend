@@ -27,3 +27,8 @@ export type LikeData = {
     likes: number,
     onClick: (liked: boolean) => void
 }
+
+export type navbarInfo = {
+    loggedIn: boolean,
+    user: User
+}
