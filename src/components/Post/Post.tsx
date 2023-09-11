@@ -1,11 +1,12 @@
 import './Post.css';
 import { type PostData } from '../../utils/types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Like from '../Like/Like';
+
 export default function Post(post: PostData) {
   const [likes, setLikes] = useState(post.likes);
   const [liked, setLiked] = useState(post.liked);
-
+  const [date, setDate] = useState(post.date);
   async function handleLike(liked: boolean) {
     setLiked(liked);
 
@@ -30,18 +31,23 @@ export default function Post(post: PostData) {
     }
   }
 
+  useEffect(() => {
+    const dateCreated = new Date(post.date);
+    setDate(dateCreated.toDateString());
+  }, []);
+
   return (
     <div id="post-container">
       <div id="post-header">
         <h4> {post.title} </h4>
         <a href={'/profile/' + post.userId}> @{post.userName} </a>
+        <p> {date} </p>
       </div>
 
       <p> {post.content} </p>
 
       <div id="like-information">
         <Like liked={liked} likes={likes} onClick={handleLike} />
-        <p>{likes}</p>
       </div>
     </div>
   );
