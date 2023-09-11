@@ -1,13 +1,19 @@
 p {
   color: white;
-  font-family: "Arial", sans-serif;
-  font-weight: 400;
+  font-family: 'Arial', sans-serif;
+  font-weight: 200;
   font-size: 0.9em;
+  margin: 0px;
 }
 
+a {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9em;
+}
 #post-container {
   border-bottom: 1px solid var(--border-color);
-  padding: 0.5em;
+  padding-left: 0.5em;
+  padding-bottom: 1em;
 }
 
 #post-header {
@@ -17,10 +23,10 @@ p {
   flex-wrap: wrap;
 }
 
-#post-header > h2 {
+#post-header > h4 {
   color: white;
-  font-family: "Arial", sans-serif;
-  font-weight: 400;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500;
 }
 
 #post-header > a,
@@ -30,5 +36,16 @@ p {
 }
 
 #post-header > a:hover {
-  text-decoration: underline;
+  color: white;
+}
+
+#like-information {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 15px;
+}
+
+#like-information > p {
+  font-size: 1.2em;
 }

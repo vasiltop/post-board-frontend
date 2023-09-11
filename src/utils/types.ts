@@ -21,3 +21,9 @@ export type PostData = {
     userName: string,
     _id: string
 }
+
+export type LikeData = {
+    liked: boolean,
+    likes: number,
+    onClick: (liked: boolean) => void
+}

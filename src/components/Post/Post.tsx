@@ -1,6 +1,7 @@
 import './Post.css';
 import { type PostData } from '../../utils/types';
 import { useState } from 'react';
+import Like from '../Like/Like';
 export default function Post(post: PostData) {
   const [likes, setLikes] = useState(post.likes);
   const [liked, setLiked] = useState(post.liked);
@@ -32,18 +33,16 @@ export default function Post(post: PostData) {
   return (
     <div id="post-container">
       <div id="post-header">
-        <h2> {post.title} </h2>
-        <a href={'/profile/' + post.userId}> {post.userName} </a>
-        <p> {post.date} </p>
+        <h4> {post.title} </h4>
+        <a href={'/profile/' + post.userId}> @{post.userName} </a>
       </div>
 
       <p> {post.content} </p>
-      <p> {likes} </p>
-      <input
-        type="checkbox"
-        checked={liked}
-        onChange={(e) => handleLike(e.target.checked)}
-      />
+
+      <div id="like-information">
+        <Like liked={liked} likes={likes} onClick={handleLike} />
+        <p>{likes}</p>
+      </div>
     </div>
   );
 }
