@@ -1,6 +1,7 @@
 import { onChange } from '../../utils/event';
 import { useState } from 'react';
 import { JsonData } from '../../utils/types';
+import Navbar from '../../components/Navbar/Navbar';
 
 export default function Create() {
   const [title, setTitle] = useState('');
@@ -27,6 +28,7 @@ export default function Create() {
 
   return (
     <>
+      <Navbar />
       <form onSubmit={handleCreate}>
         <input
           value={title}

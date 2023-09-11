@@ -1,11 +1,12 @@
 import './Navbar.css';
 
 import { JsonData, User } from '../../utils/types';
-import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const nav = useNavigate();
   const [user, setUser] = useState<User>({
     name: '',
     email: '',
@@ -14,10 +15,9 @@ export default function Navbar() {
     _id: '',
   });
 
-  const navigate = useNavigate();
   function logOut() {
-    localStorage.setItem('jwt', '');
-    navigate(0);
+    localStorage.removeItem('jwt');
+    nav('/login');
   }
 
   useEffect(() => {

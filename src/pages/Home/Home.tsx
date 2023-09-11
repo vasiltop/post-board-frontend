@@ -16,6 +16,7 @@ export default function Home() {
     date: '',
     _id: '',
   });
+  
   useEffect(() => {
     const jwt = localStorage.getItem('jwt')!;
 
@@ -38,9 +39,7 @@ export default function Home() {
     }
 
     getUserData();
-  }, []);
 
-  useEffect(() => {
     async function getPosts() {
       const jwt = localStorage.getItem('jwt')!;
 
@@ -64,6 +63,7 @@ export default function Home() {
       return <Navigate to="/login" />;
     }
   }
+
   return (
     <>
       <Navbar />
