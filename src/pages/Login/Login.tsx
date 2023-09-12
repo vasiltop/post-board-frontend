@@ -38,22 +38,29 @@ export default function Login() {
   return (
     <>
       <Navbar />
+
       <form onSubmit={handleLogin}>
+        <h1> Login </h1>
         <input
+          className="text-input"
           type="text"
           value={email}
           required
           onChange={onChange(setEmail)}
+          placeholder="Email"
         />
 
         <input
+          className="text-input"
           type="password"
           value={password}
           required
           onChange={onChange(setPassword)}
+          placeholder="Password"
         />
 
         <button type="submit">Login</button>
+        <a href="/register"> Don't have an account?</a>
       </form>
     </>
   );

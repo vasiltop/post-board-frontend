@@ -2,6 +2,7 @@ import { onChange } from '../../utils/event';
 import { useState } from 'react';
 import { JsonData } from '../../utils/types';
 import Navbar from '../../components/Navbar/Navbar';
+import './Create.css';
 
 export default function Create() {
   const [title, setTitle] = useState('');
@@ -30,18 +31,23 @@ export default function Create() {
     <>
       <Navbar />
       <form onSubmit={handleCreate}>
+        <h1> Create a post.</h1>
         <input
+          className="text-input"
           value={title}
           type="text"
           required
           onChange={onChange(setTitle)}
+          placeholder="Title"
         />
 
-        <input
+        <textarea
+          className="text-input text-input-big"
           value={content}
           type="text"
           required
           onChange={onChange(setContent)}
+          placeholder="Content"
         />
 
         <button type="submit"> Post </button>
