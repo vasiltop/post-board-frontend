@@ -40,7 +40,7 @@ export default function Post(post: PostData) {
     <div id="post-container">
       <div id="post-header">
         <h4> {post.title} </h4>
-        <p> @{post.userName} </p>
+        <a href={'/profile/' + post.userId}> @{post.userName} </a>
         <p> {date} </p>
       </div>
 

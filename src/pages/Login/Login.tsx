@@ -9,6 +9,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [handledLogin, setHandledLogin] = useState(false);
+  const [error, setError] = useState('');
 
   async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,9 +26,12 @@ export default function Login() {
     });
 
     const responseJSON: JsonData = await res.json();
+    console.log(responseJSON);
     if (responseJSON.success) {
       setHandledLogin(true);
       localStorage.setItem('jwt', responseJSON.data.jwt);
+    } else {
+      setError(responseJSON.err!);
     }
   }
 
@@ -58,6 +62,7 @@ export default function Login() {
           onChange={onChange(setPassword)}
           placeholder="Password"
         />
+        <p id="error"> {error != '' ? error : <> </>}</p>
 
         <button type="submit">Login</button>
         <a href="/register"> Don't have an account?</a>

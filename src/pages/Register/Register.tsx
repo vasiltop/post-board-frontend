@@ -9,7 +9,7 @@ export default function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [handledRegister, setHandledRegister] = useState(false);
-
+  const [error, setError] = useState('');
   async function handleRegister(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -29,6 +29,8 @@ export default function Register() {
 
     if (responseJSON.success) {
       setHandledRegister(true);
+    } else {
+      setError(responseJSON.err!);
     }
   }
 
@@ -67,7 +69,7 @@ export default function Register() {
           onChange={onChange(setPassword)}
           placeholder="Password"
         />
-
+        <p id="error"> {error != '' ? error : <> </>}</p>
         <button type="submit">Register</button>
         <a href="/login"> Already have an account? </a>
       </form>
