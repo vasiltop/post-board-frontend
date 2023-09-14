@@ -1,6 +1,6 @@
 import './Post.css';
 import { type PostData } from '../../utils/types';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Like from '../Like/Like';
 
 export default function Post(post: PostData) {

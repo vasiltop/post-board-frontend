@@ -1,7 +1,7 @@
 import './Home.css';
 import Post from '../../components/Post/Post';
 import { useEffect, useState } from 'react';
-import { User, type JsonData, type PostData } from '../../utils/types';
+import { type JsonData, type PostData } from '../../utils/types';
 import { Navigate } from 'react-router';
 import Navbar from '../../components/Navbar/Navbar';
 
