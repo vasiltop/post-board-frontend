@@ -11,9 +11,12 @@ export default function Profile() {
   const [validId, setValidId] = useState(false);
   useEffect(() => {
     async function getUserInfo() {
-      const res = await fetch('http://localhost:8000/user/' + id, {
-        method: 'GET',
-      });
+      const res = await fetch(
+        'https://postboardapi.vasiltopalovic.com/user/' + id,
+        {
+          method: 'GET',
+        }
+      );
 
       const responseJSON: JsonData = await res.json();
       setName(responseJSON.data.username);

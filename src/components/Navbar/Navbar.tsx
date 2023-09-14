@@ -24,7 +24,7 @@ export default function Navbar() {
     const jwt = localStorage.getItem('jwt')!;
 
     async function getUserData() {
-      const res = await fetch('http://localhost:8000/user/me', {
+      const res = await fetch('https://postboardapi.vasiltopalovic.com/user/me', {
         method: 'GET',
         headers: {
           'auth-token': jwt,

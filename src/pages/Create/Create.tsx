@@ -13,17 +13,20 @@ export default function Create() {
     event.preventDefault();
     const jwt = localStorage.getItem('jwt')!;
 
-    const res = await fetch('http://localhost:8000/post/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'auth-token': jwt,
-      },
-      body: JSON.stringify({
-        title: title,
-        content: content,
-      }),
-    });
+    const res = await fetch(
+      'https://postboardapi.vasiltopalovic.com/post/create',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': jwt,
+        },
+        body: JSON.stringify({
+          title: title,
+          content: content,
+        }),
+      }
+    );
 
     const responseJSON: JsonData = await res.json();
 

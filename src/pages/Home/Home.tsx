@@ -14,12 +14,15 @@ export default function Home() {
     const jwt = localStorage.getItem('jwt')!;
 
     async function getUserData() {
-      const res = await fetch('http://localhost:8000/user/me', {
-        method: 'GET',
-        headers: {
-          'auth-token': jwt,
-        },
-      });
+      const res = await fetch(
+        'https://postboardapi.vasiltopalovic.com/user/me',
+        {
+          method: 'GET',
+          headers: {
+            'auth-token': jwt,
+          },
+        }
+      );
 
       const responseJSON: JsonData = await res.json();
 
@@ -32,7 +35,7 @@ export default function Home() {
     async function getPosts() {
       const jwt = localStorage.getItem('jwt')!;
 
-      const res = await fetch('http://localhost:8000/post', {
+      const res = await fetch('https://postboardapi.vasiltopalovic.com/post', {
         method: 'GET',
         headers: {
           'auth-token': jwt,

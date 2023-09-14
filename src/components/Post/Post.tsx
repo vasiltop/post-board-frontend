@@ -10,21 +10,27 @@ export default function Post(post: PostData) {
   async function handleLike(liked: boolean) {
     setLike(liked);
     if (liked) {
-      await fetch(`http://localhost:8000/post/${post.id}/like`, {
-        method: 'GET',
-        headers: {
-          'auth-token': localStorage.getItem('jwt')!,
-        },
-      });
+      await fetch(
+        `https://postboardapi.vasiltopalovic.com/post/${post.id}/like`,
+        {
+          method: 'GET',
+          headers: {
+            'auth-token': localStorage.getItem('jwt')!,
+          },
+        }
+      );
 
       setLikes(likes + 1);
     } else {
-      await fetch(`http://localhost:8000/post/${post.id}/unlike`, {
-        method: 'GET',
-        headers: {
-          'auth-token': localStorage.getItem('jwt')!,
-        },
-      });
+      await fetch(
+        `https://postboardapi.vasiltopalovic.com/post/${post.id}/unlike`,
+        {
+          method: 'GET',
+          headers: {
+            'auth-token': localStorage.getItem('jwt')!,
+          },
+        }
+      );
 
       setLikes(likes - 1);
     }
