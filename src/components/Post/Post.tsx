@@ -6,7 +6,7 @@ import Like from '../Like/Like';
 export default function Post(post: PostData) {
   const [likes, setLikes] = useState(post.likes);
   const [liked, setLike] = useState(post.liked);
-  console.log(post);
+
   async function handleLike(liked: boolean) {
     setLike(liked);
     if (liked) {
