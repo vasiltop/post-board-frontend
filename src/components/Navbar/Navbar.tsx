@@ -24,7 +24,7 @@ export default function Navbar() {
     const jwt = localStorage.getItem('jwt')!;
 
     async function getUserData() {
-      const res = await fetch('http://localhost:8000/api/user/me', {
+      const res = await fetch('http://localhost:8000/user/me', {
         method: 'GET',
         headers: {
           'auth-token': jwt,
@@ -36,7 +36,7 @@ export default function Navbar() {
       setLoggedIn(responseJSON.success);
 
       if (responseJSON.success) {
-        setUser(responseJSON.data.user);
+        setUser(responseJSON.data.username);
       }
     }
 
@@ -62,7 +62,7 @@ export default function Navbar() {
             </svg>
           </a>
 
-          <a href={'/profile/' + user._id}>
+          <a href={'/profile/' + user}>
             {' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"

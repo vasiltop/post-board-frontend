@@ -13,13 +13,13 @@ export default function Register() {
   async function handleRegister(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const res = await fetch('http://localhost:8000/api/user/register', {
+    const res = await fetch('http://localhost:8000/user/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: username,
+        username: username,
         email: email,
         password: password,
       }),

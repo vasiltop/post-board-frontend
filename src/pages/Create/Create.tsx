@@ -13,7 +13,7 @@ export default function Create() {
     event.preventDefault();
     const jwt = localStorage.getItem('jwt')!;
 
-    const res = await fetch('http://localhost:8000/api/posts/create', {
+    const res = await fetch('http://localhost:8000/post/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

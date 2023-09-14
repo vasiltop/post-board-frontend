@@ -9,19 +9,12 @@ export default function Home() {
   const [posts, setPosts] = useState<PostData[]>([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [verifiedToken, setVerifiedToken] = useState(false);
-  const [user, setUser] = useState<User>({
-    name: '',
-    email: '',
-    password: '',
-    date: '',
-    _id: '',
-  });
-  
+
   useEffect(() => {
     const jwt = localStorage.getItem('jwt')!;
 
     async function getUserData() {
-      const res = await fetch('http://localhost:8000/api/user/me', {
+      const res = await fetch('http://localhost:8000/user/me', {
         method: 'GET',
         headers: {
           'auth-token': jwt,
@@ -32,10 +25,6 @@ export default function Home() {
 
       setLoggedIn(responseJSON.success);
       setVerifiedToken(true);
-
-      if (responseJSON.success) {
-        setUser(responseJSON.data.user);
-      }
     }
 
     getUserData();
@@ -43,7 +32,7 @@ export default function Home() {
     async function getPosts() {
       const jwt = localStorage.getItem('jwt')!;
 
-      const res = await fetch('http://localhost:8000/api/posts', {
+      const res = await fetch('http://localhost:8000/post', {
         method: 'GET',
         headers: {
           'auth-token': jwt,
@@ -71,15 +60,12 @@ export default function Home() {
         <ul>
           {posts.map((post) => (
             <Post
-              key={post._id}
+              key={post.author}
               title={post.title}
               content={post.content}
-              userName={post.userName}
-              date={post.date}
-              liked={post.liked}
+              author={post.author}
               likes={post.likes}
-              userId={post.userId}
-              _id={post._id}
+              id={post.id}
             />
           ))}
         </ul>

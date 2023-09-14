@@ -8,18 +8,15 @@ export default function Profile() {
   const { id } = useParams();
 
   const [name, setName] = useState('');
-  const [dateCreated, setDateCreated] = useState('');
   const [validId, setValidId] = useState(false);
   useEffect(() => {
     async function getUserInfo() {
-      const res = await fetch('http://localhost:8000/api/user/info/' + id, {
+      const res = await fetch('http://localhost:8000/user/' + id, {
         method: 'GET',
       });
 
       const responseJSON: JsonData = await res.json();
-      setName(responseJSON.data.user.name);
-      const dateCreated = new Date(responseJSON.data.user.date);
-      setDateCreated(dateCreated.toDateString());
+      setName(responseJSON.data.username);
 
       if (responseJSON.success) {
         setValidId(true);
@@ -46,8 +43,6 @@ export default function Profile() {
 
       <div id="profile-content">
         <h1> {name}'s profile</h1>
-
-        <p> Account created on {dateCreated}.</p>
       </div>
     </>
   );

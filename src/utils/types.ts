@@ -1,35 +1,32 @@
 export type JsonData = {
-    success: boolean;
-    data: any;
-    err?: string;
-}
+  success: boolean;
+  data: any;
+  err?: string;
+};
 
 export type User = {
-    date: string,
-    email: string,
-    name: string,
-    password: string,
-    _id: string
-}
+  date: string;
+  email: string;
+  name: string;
+  password: string;
+  _id: string;
+};
 
 export type PostData = {
-    content: string,
-    date: string,
-    liked: boolean,
-    likes: number,
-    title: string,
-    userId: string,
-    userName: string,
-    _id: string
-}
+  content: string;
+  likes: number;
+  title: string;
+  author: string;
+  id: number;
+};
 
 export type LikeData = {
-    liked: boolean,
-    likes: number,
-    onClick: (liked: boolean) => void
-}
+  liked: boolean;
+  likes: number;
+  onClick: (liked: boolean) => void;
+};
 
 export type navbarInfo = {
-    loggedIn: boolean,
-    user: User
-}
+  loggedIn: boolean;
+  user: User;
+};
