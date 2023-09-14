@@ -31,7 +31,7 @@ export default function Create() {
     const responseJSON: JsonData = await res.json();
 
     if (!responseJSON.success) {
-      setError(responseJSON.err!);
+      setError(responseJSON.error!);
     } else {
       nav('/');
     }

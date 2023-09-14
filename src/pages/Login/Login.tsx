@@ -34,7 +34,7 @@ export default function Login() {
       setHandledLogin(true);
       localStorage.setItem('jwt', responseJSON.data.jwt);
     } else {
-      setError(responseJSON.err!);
+      setError(responseJSON.error!);
     }
   }
 

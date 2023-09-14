@@ -1,7 +1,7 @@
 export type JsonData = {
   success: boolean;
   data: any;
-  err?: string;
+  error?: string;
 };
 
 export type User = {

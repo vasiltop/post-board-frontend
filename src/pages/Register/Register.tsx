@@ -33,7 +33,7 @@ export default function Register() {
     if (responseJSON.success) {
       setHandledRegister(true);
     } else {
-      setError(responseJSON.err!);
+      setError(responseJSON.error!);
     }
   }
 
