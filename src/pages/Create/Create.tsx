@@ -51,7 +51,6 @@ export default function Create() {
         <textarea
           className="text-input text-input-big"
           value={content}
-          type="text"
           required
           onChange={onChange(setContent)}
           placeholder="Content"
