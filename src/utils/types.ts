@@ -18,6 +18,7 @@ export type PostData = {
   title: string;
   author: string;
   id: number;
+  liked: boolean;
 };
 
 export type LikeData = {

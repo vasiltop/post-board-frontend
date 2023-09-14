@@ -41,7 +41,7 @@ export default function Home() {
 
       const responseJSON: JsonData = await res.json();
 
-      setPosts(responseJSON.data.postList.reverse());
+      setPosts(responseJSON.data.postList);
     }
 
     getPosts();
@@ -60,11 +60,12 @@ export default function Home() {
         <ul>
           {posts.map((post) => (
             <Post
-              key={post.author}
+              key={post.id}
               title={post.title}
               content={post.content}
               author={post.author}
               likes={post.likes}
+              liked={post.liked}
               id={post.id}
             />
           ))}
