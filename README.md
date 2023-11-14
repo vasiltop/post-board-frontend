@@ -1,5 +1,7 @@
 # PostBoard
 
+A minimmalistic social media application similar to X, which allows users to post their messages to a global message board and receive likes by other users.
+
 ## Getting Started
 
 ### Prerequisites
@@ -9,20 +11,14 @@
 
 ### Installation
 
-1. Clone the repo
-
 ```sh
-git clone
-```
+git clone https://github.com/vasiltop/postboard
 
-2. Install packages
-
-```sh
+cd postboard
 pnpm install
-```
+pnpm run dev
 
-## Usage
-
-```sh
+cd postboard/server
+pnpm install
 pnpm run dev
 ```
